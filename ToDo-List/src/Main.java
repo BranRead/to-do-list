@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -15,6 +16,12 @@ public class Main {
 
         while (flag) {
             System.out.println();
+            System.out.println("Main Menu");
+            Functions.LineBreak(189, "-");
+            System.out.println("|Commands are: 'a' - Add to list | 'm' - Mark task to 'Done' " +
+                    "| 'r' - Remove task from list | 'c' - Clear entire list | 'e' - Edit the list " +
+                    "| 'd' - Display the list | 'x' - Exit the program|");
+            Functions.LineBreak(189, "-");
             System.out.print("Enter command: ");
             String command = input.nextLine().toLowerCase();
             System.out.println();
@@ -23,7 +30,7 @@ public class Main {
                     Functions.add(items, date, status, desc);
                     break;
                 case "m":
-                    Functions.mark(items, status);
+                    Functions.mark(items, date, status, desc, name);
                     break;
                 case "r":
                     Functions.remove(items, date, status, desc, name);
@@ -39,6 +46,7 @@ public class Main {
                     break;
                 case "x":
                     flag = false;
+                    System.out.println("Mischief managed.");
                     break;
                 default:
                     System.out.println("Invalid command, please try again.");
